@@ -130,3 +130,34 @@ Feature: The promotion store service back-end
     And I should see "10" in the "Quantity" field
     And I should see "True" in the "Active" dropdown
     And I should see "33422" in the "Product ID" field
+
+    Scenario: Read a Promotion
+    When I visit the "Home Page"
+    And I set the "Promo ID" to "JULY4"
+    When I press the "Retrieve" button
+    Then I should see the message "Success"
+    And I should see "JULY4" in the "Cust Promo Code" field
+    And I should see "SAVING" in the "Type" field
+    And I should see "50" in the "Value" field
+    And I should see "10" in the "Quantity" field
+    And I should see "2024-03-05" in the "Start Date" field
+    And I should see "2024-03-10" in the "End Date" field
+    And I should see "True" in the "Active" field
+    And I should see "33422" in the "Product ID" field
+    
+    Scenario: List all promotions
+    When I visit the "Home Page"
+    And I press the "Search" button
+    Then I should see the message "Success"
+    And I should see "JULY4" in the results
+    And I should see "SAVING" in the results
+    And I should see "50" in the results
+    And I should see "10" in the results
+    And I should see "True" in the results
+    And I should see "33422" in the results
+    And I should see "JUN2" in the results
+    And I should see "BOGO" in the results
+    And I should see "20" in the results
+    And I should see "5" in the results
+    And I should see "True" in the results
+    And I should see "2928383" in the results

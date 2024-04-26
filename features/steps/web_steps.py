@@ -121,20 +121,20 @@ def step_impl(context, button):
     context.driver.find_element(By.ID, button_id).click()
 
 
-@then('I should see "{name}" in the results')
-def step_impl(context, name):
+@then('I should see "{cust_promo_code}" in the results')
+def step_impl(context, cust_promo_code):
     found = WebDriverWait(context.driver, context.wait_seconds).until(
         expected_conditions.text_to_be_present_in_element(
-            (By.ID, "search_results"), name
+            (By.ID, "search_results"), cust_promo_code
         )
     )
     assert found
 
 
-@then('I should not see "{name}" in the results')
-def step_impl(context, name):
+@then('I should not see "{cust_promo_code}" in the results')
+def step_impl(context, cust_promo_code):
     element = context.driver.find_element(By.ID, "search_results")
-    assert name not in element.text
+    assert cust_promo_code not in element.text
 
 
 @then('I should see the message "{message}"')
@@ -169,7 +169,7 @@ def step_impl(context, text_string, element_name):
 @then('I should see the previous day\'s date in the "{element_name}" field')
 def step_impl(context, element_name):
     element_id = ID_PREFIX + element_name.lower().replace(" ", "_")
-    expected_date = (datetime.now() - timedelta(days=1)).strftime('%Y-%m-%d')
+    expected_date = (datetime.now() - timedelta(days=1)).strftime("%Y-%m-%d")
     found = WebDriverWait(context.driver, context.wait_seconds).until(
         expected_conditions.text_to_be_present_in_element_value(
             (By.ID, element_id), expected_date

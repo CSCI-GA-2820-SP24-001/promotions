@@ -14,7 +14,7 @@ Feature: The promotion store service back-end
         Then I should see "Promotion Demo RESTful Service" in the title
         And I should not see "404 Not Found"
 
-    Scenario: Create a Promotion
+    Scenario: Create & Read a Promotion
     When I visit the "Home Page"
     And I set the "Cust Promo Code" to "SUMMERSALE"
     And I select "Percent" in the "Type" dropdown
@@ -118,7 +118,6 @@ Feature: The promotion store service back-end
     And I press the "Delete" button
     Then I should see the message "Promotion has been Deleted!"
 
-
     Scenario: Query a Promotion by Type
     When I visit the "Home Page"
     And I select "Saving" in the "Type" dropdown
@@ -130,3 +129,12 @@ Feature: The promotion store service back-end
     And I should see "10" in the "Quantity" field
     And I should see "True" in the "Active" dropdown
     And I should see "33422" in the "Product ID" field
+    
+    Scenario: List all promotions
+    When I visit the "Home Page"
+    And I press the "Clear" button
+    And I press the "Search" button
+    Then I should see the message "Success"
+    And I should see "JULY4" in the results
+    And I should see "JUN2" in the results
+    And I should not see "DEC" in the results

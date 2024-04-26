@@ -258,7 +258,7 @@ $(function () {
 
     $("#search-btn").click(function () {
 
-        let cust_promo_code = $("#promo_cust_promo_code").val("");
+        let cust_promo_code = $("#promo_cust_promo_code").val();
         let type = $("#promo_type").val();
         let active = $("#promo_active").val() == "true";
 

@@ -4,14 +4,6 @@ apiVersion: tekton.dev/v1beta1
 kind: Task
 metadata:
   name: pylint
-  labels:
-    app.kubernetes.io/version: "0.4"
-  annotations:
-    tekton.dev/categories: Code Quality
-    tekton.dev/pipelines.minVersion: "0.17.0"
-    tekton.dev/tags: python, pylint, poetry
-    tekton.dev/displayName: "pylint"
-    tekton.dev/platforms: "linux/amd64,linux/s390x,linux/ppc64le"
 spec:
   workspaces:
     - name: source
@@ -66,14 +58,6 @@ apiVersion: tekton.dev/v1beta1
 kind: Task
 metadata:
   name: pytest-env
-  labels:
-    app.kubernetes.io/version: "0.1"
-  annotations:
-    tekton.dev/categories: Testing
-    tekton.dev/pipelines.minVersion: "0.17.0"
-    tekton.dev/tags: python, pytest
-    tekton.dev/displayName: "pytest tests"
-    tekton.dev/platforms: "linux/amd64,linux/s390x,linux/ppc64le"
 spec:
   workspaces:
     - name: source
@@ -136,14 +120,6 @@ apiVersion: tekton.dev/v1beta1
 kind: Task
 metadata:
   name: deploy-image
-  labels:
-    app.kubernetes.io/version: "0.1"
-  annotations:
-    tekton.dev/categories: Deployment
-    tekton.dev/pipelines.minVersion: "0.17.0"
-    tekton.dev/tags: openshift, deploy
-    tekton.dev/displayName: "deploy image"
-    tekton.dev/platforms: "linux/amd64"
 spec:
   workspaces:
     - name: source
@@ -199,14 +175,6 @@ apiVersion: tekton.dev/v1beta1
 kind: Task
 metadata:
   name: apply-manifests
-  labels:
-    app.kubernetes.io/version: "0.1"
-  annotations:
-    tekton.dev/categories: Deployment
-    tekton.dev/pipelines.minVersion: "0.17.0"
-    tekton.dev/tags: openshift, deploy
-    tekton.dev/displayName: "deploy"
-    tekton.dev/platforms: "linux/amd64"
 spec:
   workspaces:
     - name: source
@@ -233,14 +201,6 @@ apiVersion: tekton.dev/v1beta1
 kind: Task
 metadata:
   name: behave
-  labels:
-    app.kubernetes.io/version: "0.1"
-  annotations:
-    tekton.dev/categories: Testing
-    tekton.dev/pipelines.minVersion: "0.17.0"
-    tekton.dev/tags: python, bdd, behave
-    tekton.dev/displayName: "bdd tests"
-    tekton.dev/platforms: "linux/amd64"
 spec:
   workspaces:
     - name: source

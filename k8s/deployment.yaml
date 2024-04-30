@@ -22,7 +22,7 @@ spec:
       restartPolicy: Always
       containers:
         - name: promotions
-          image: cluster-registry:32000/promotions:latest
+          image: cluster-registry:32000/promotions:1.0
           #image: promotions
           imagePullPolicy: IfNotPresent
           ports:
